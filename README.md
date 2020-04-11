@@ -1,2 +1,6 @@
-# laravel_dev
-laravel実験用です。
+# homestead_vagrant
+homesteadを使ったlaravel環境です。
+
+```
+$ git submodule add 
+```
