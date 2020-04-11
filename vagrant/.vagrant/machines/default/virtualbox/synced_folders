@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/project":{"guestpath":"/home/vagrant/project","hostpath":"/Users/katsutoshi/source/laravel_dev/project","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/katsutoshi/source/laravel_dev/vagrant","disabled":false,"__vagrantfile":true}}}
