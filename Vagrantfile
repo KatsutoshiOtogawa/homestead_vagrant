@@ -70,6 +70,9 @@ Vagrant.configure("2") do |config|
       apt-get update
       apt-get -y upgrade
 
+      # osが管理しているnpmだとちょっと古いので、バージョンアップ。
+      npm install -g npm
+
       # gcp開発用　いらないなら下記をコメントアウトしてください。
       # cloud sdk install 右のページをみること https://cloud.google.com/sdk/docs/downloads-apt-get?hl=ja
       echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
@@ -79,8 +82,9 @@ Vagrant.configure("2") do |config|
       # 必要に応じてcloud sdk追加のコンポーネントもインストールしてください。
 
       # aws開発用　いらないなら下記をコメントアウトしてください。
+      # awscli install 右のページを参考に https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/install-linux.html
+      apt -y install python3-pip
+      pip3 install awscli --upgrade --user
 
-      # osが管理しているnpmだとちょっと古いので、バージョンアップ。
-      npm install -g npm
   SHELL
 end
