@@ -73,6 +73,14 @@ Vagrant.configure("2") do |config|
       # osが管理しているnpmだとちょっと古いので、バージョンアップ。
       npm install -g npm
 
+      # docker 環境/開発確認用 いらないなら下記をコメントアウトしてください。
+      # https://docs.docker.com/engine/install/ubuntu/
+      apt-get -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+      apt-key fingerprint 0EBFCD88
+      add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+      apt-get update && apt-get -y install docker-ce docker-ce-cli containerd.io
+
       # gcp開発用　いらないなら下記をコメントアウトしてください。
       # cloud sdk install 右のページをみること https://cloud.google.com/sdk/docs/downloads-apt-get?hl=ja
       echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
