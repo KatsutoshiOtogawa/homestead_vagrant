@@ -15,10 +15,3 @@ vagrant環境をsubmoduleとして
 プロジェクトに追加します。
 hogeproject/project
 配下のプロジェクトが実際のプロジェクトになります。
-
-sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common
