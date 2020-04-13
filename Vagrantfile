@@ -70,6 +70,16 @@ Vagrant.configure("2") do |config|
       apt-get update
       apt-get -y upgrade
 
+      # gcp開発用　いらないなら下記をコメントアウトしてください。
+      # cloud sdk install 右のページをみること https://cloud.google.com/sdk/docs/downloads-apt-get?hl=ja
+      echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+      apt-get install apt-transport-https ca-certificates gnupg
+      curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+      apt-get update && apt-get -y install google-cloud-sdk
+      # 必要に応じてcloud sdk追加のコンポーネントもインストールしてください。
+
+      # aws開発用　いらないなら下記をコメントアウトしてください。
+
       # osが管理しているnpmだとちょっと古いので、バージョンアップ。
       npm install -g npm
   SHELL
