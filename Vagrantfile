@@ -81,6 +81,11 @@ Vagrant.configure("2") do |config|
       add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
       apt-get update && apt-get -y install docker-ce docker-ce-cli containerd.io
 
+      # docker-compose 環境/開発確認用いらないなら下記をコメントアウトしてください。
+      # https://docs.docker.com/compose/install/
+      curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+      chmod +x /usr/local/bin/docker-compose
+
       # gcp開発用　いらないなら下記をコメントアウトしてください。
       # cloud sdk install 右のページをみること https://cloud.google.com/sdk/docs/downloads-apt-get?hl=ja
       echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
