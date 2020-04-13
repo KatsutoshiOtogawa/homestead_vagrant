@@ -65,8 +65,12 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
+  # homestedデフォルトのバージョンでそれぞれのパッケージが欲しいなら下記をコメントアウトしてください。
   config.vm.provision "shell", inline: <<-SHELL
       apt-get update
       apt-get -y upgrade
+
+      # osが管理しているnpmだとちょっと古いので、バージョンアップ。
+      npm install -g npm
   SHELL
 end
